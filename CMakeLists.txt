@@ -1,1 +1,1 @@
-request_package(mvi)
+request_dependency(mvi)
