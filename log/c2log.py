@@ -9,19 +9,23 @@ logWriter = None
 fpsStat = None
 
 def onUpdate(frame, time, dt):
-	global lastlog
-	global logWriter
-	if(time - lastlog > logfreq):
-		data = CAVE2PerformanceReader.collect()
-		for row in data:
-			logWriter.writerow((time, row[0], row[1], row[2], row[3], row[4]))
-		lastlog = time
+    global lastlog
+    global logWriter
+    if(time - lastlog > logfreq):
+        data = CAVE2PerformanceReader.collect()
+        for row in data:
+            logWriter.writerow((time, row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
+        lastlog = time
 
 def start(filename):
-	global logFile
-	global logWriter
-	logFile = open(filename, 'w')
-	logWriter = csv.writer(logFile)
-	setUpdateFunction(onUpdate)
-	
-start('perf.csv')
+    global logFile
+    global logWriter
+    logFile = open(filename, 'w')
+    logWriter = csv.writer(logFile)
+    setUpdateFunction(onUpdate)
+    
+
+def stop():
+    global logFile
+    logFile.close()
+    unregisterFrameCallbacks()

@@ -10,6 +10,8 @@ for i in range(1, 37):
 	if(i >= 24): secname = 'right'
 	coldict[nodename] = (colname, secname)
 
+coldict['lyra'] = ('cmaster', 'master')
+
 def collect():
 	clusterDatarUrl = 'http://lyra.evl.uic.edu:9000/html/cluster.txt'
 
