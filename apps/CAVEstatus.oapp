@@ -1,0 +1,31 @@
+config:
+{
+	systemConfig = "DEFAULT";
+    initScript = "mvi/config/split2.py";
+    appController:
+    {
+        //modeSwitchButton = "Button5";
+        //moveButton = "Button3";
+        //resizeButton = "Button2";
+        showOverlay = true;
+    };
+	defaultFont:
+	{
+		filename = "fonts/arial.ttf";
+		size = 16;
+	};
+    app:
+    {
+        label = "CAVE2 Status";
+        icon="./status.png";
+        group="Utilities";
+        args = "-w 0,0,5000,3000";
+    };
+    orun:
+    {
+        initScript="CAVEstatus.py";
+        appStartFunction="";
+
+    };
+    services: {};
+};
